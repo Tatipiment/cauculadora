@@ -81,7 +81,7 @@ while operacao != "=" :
                 print("""\n 🛑 Erro! Por favor responda qual operação quer fazer digitando "+", "-", "*", "/".""")
         else:
             operacao = "=" 
-            print("\n 👉", "Seu resultado final é {} \n \n \n 👋👋👋👋👋👋👋👋👋👋👋👋👋👋👋".format(resultado))
+            print("\n 👉", "Seu resultado final é {} \n \n \n 👋👋👋👋👋👋👋👋👋👋👋👋👋👋👋 \n".format(resultado))
             attempt_count = 0
 
 
