@@ -4,34 +4,86 @@
 # In[43]:
 
 
-print("\n** Bem vindo(a) à cauculadora da Tati **")
+print("\n 👋 Bem vindo(a) à cauculadora da Tati ")
 print("\n")
 print("Para escolher a operação desejada digite um dos números abaixo:")
-print("> Soma = 1")
-print("> Subtração = 2")
-print("> Multiplicação = 3")
-print("> Divisão = 4")
+print("> Soma: +")
+print("> Subtração: -")
+print("> Multiplicação: *")
+print("> Divisão: /")
 
-operacao = int(input('\nQual operação deseja fazer? '))
-num1 = int(input("\nQual o primeiro numero? "))
-num2 = int(input("\nQual o segundo numero? ")) 
-    
-if operacao == 1:
-    resultado = num1 + num2
-    print("\n>>>", num1,"+", num2, "=", resultado, "\n")
-    
-elif operacao == 2:
-    resultado = num1 - num2
-    print("\n>>>", num1,"-", num2, "=", resultado, "\n")
-    
-elif operacao == 3:
-    resultado = num1 * num2
-    print("\n>>>", num1,"x", num2, "=", resultado, "\n")
-    
-elif operacao == 4:
-    resultado = num1 / num2
-    print("\n>>>", num1,"/", num2, "=", resultado, "\n")
 
-else: 
-    print("\n", "*** Erro! Por favor responda escolha os números indicados. 1 soma, 2 subtração, 3 multiplicação e 4 divisão **")   
+
+operacao = ""
+resultado = 0
+attempt_count = 0
+
+
+while operacao != "=" :
+    
+    if attempt_count == 0:
+    
+        operacao = input('\n 🧮 Qual operação deseja fazer? ')
+        num1 = float(input("\n 🔢 Qual o primeiro numero? "))
+        num2 = float(input("\n 🔢 Qual o segundo numero? "))
+        attempt_count += 1
+    
+        if operacao == "+":
+            resultado += num1 + num2
+            print("\n 👉", num1,"+", num2, "=", resultado, "\n")
+
+        elif operacao == "-":
+            resultado = num1 - num2
+            print("\n 👉", num1,"-", num2, "=", resultado, "\n")
+
+        elif operacao == "*":
+            resultado = num1 * num2
+            print("\n 👉", num1,"x", num2, "=", resultado, "\n")
+
+        elif operacao == "/":
+            resultado = num1 / num2
+            print("\n 👉", num1,"/", num2, "=", resultado, "\n")
+
+        elif operacao == "=":
+            print("\n 👉", "Seu resultado final é {}".format(resultado))
+
+        else: 
+            print("""\n 🛑 Erro! Por favor responda qual operação quer fazer digitando "+", "-", "*", "/".""")
+            
+        
+        
+    else:
+        # operacao = input('\n 🧮 Qual operação deseja fazer com o resultado? ')
+        other_num = input("\n 🔢 Outro número? ")
+        attempt_count += 1
+        
+        if "n" not in other_num:
+            if operacao == "+":
+                old_total = resultado
+                resultado = old_total + float(other_num)
+                print("\n 👉", old_total, "+", other_num, "=", resultado, "\n")
+
+            elif operacao == "-":
+                old_total = resultado
+                resultado = old_total - other_num
+                print("\n 👉", old_total, "-", other_num, "=", resultado, "\n")
+                
+            elif operacao == "*":
+                old_total = resultado
+                resultado = old_total * other_num
+                print("\n 👉", old_total, "*", other_num, "=", resultado, "\n")
+
+            elif operacao == "/":
+                old_total = resultado
+                resultado = old_total / other_num
+                print("\n 👉", old_total, "/", other_num, "=", resultado, "\n")
+            else: 
+                print("""\n 🛑 Erro! Por favor responda qual operação quer fazer digitando "+", "-", "*", "/".""")
+        else:
+            operacao = "=" 
+            print("\n 👉", "Seu resultado final é {} \n \n \n 👋👋👋👋👋👋👋👋👋👋👋👋👋👋👋".format(resultado))
+            attempt_count = 0
+
+
+
 
